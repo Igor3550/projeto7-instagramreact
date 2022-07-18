@@ -1,17 +1,10 @@
 import React from "react";
-/*if(localStorage.getItem('arrayOfIDs') === null){
-    localStorage.setItem('arrayOfIDs' , JSON.stringify([]));
-    arrayOfIDs = localStorage.getItem('arrayOfIDs');
-}else{
-    arrayOfIDs = localStorage.getItem('arrayOfIDs');
-} */
 
+const likedListIds = []
 
 const PostBox = (props) => {
   
   const [likedPostsIdList, setLikedPostsIdList] = React.useState(getLikedIds());
-
-  const likedListIds = getLikedIds()
 
   const LikedHeart = () => {
     return (<ion-icon name="heart" class="likedHeart" onClick={() => {remvLikeClick()}} ></ion-icon>)
@@ -42,6 +35,7 @@ const PostBox = (props) => {
   }
 
   function likeClick () {
+
     likedListIds.push(props.id)
     console.log(likedListIds)
     
