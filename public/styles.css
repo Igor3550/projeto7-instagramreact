@@ -327,6 +327,10 @@ strong {
   margin: 0px 20px;
 }
 
+.likedHeart {
+  color: red;
+}
+
 button,.sugestao-info, .story, ion-icon:hover {
   cursor: pointer;
 }
