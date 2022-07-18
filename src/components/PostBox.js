@@ -1,6 +1,18 @@
 import React from "react";
 
-const likedListIds = []
+const likedListIds = getLikedIds();
+
+function getLikedIds () {
+  let arrayOfIDs;
+  if(localStorage.getItem('arrayOfIDs') === null){
+    localStorage.setItem('arrayOfIDs' , JSON.stringify([]));
+    arrayOfIDs = localStorage.getItem('arrayOfIDs');
+  }else{
+    arrayOfIDs = localStorage.getItem('arrayOfIDs');
+  } 
+  return JSON.parse(arrayOfIDs);
+}
+
 
 const PostBox = (props) => {
   
@@ -11,17 +23,6 @@ const PostBox = (props) => {
   }
   const UnlikedHeart = () => {
     return (<ion-icon name="heart-outline" onClick={() => {likeClick()}}></ion-icon>)
-  }
-
-  function getLikedIds () {
-    let arrayOfIDs;
-    if(localStorage.getItem('arrayOfIDs') === null){
-      localStorage.setItem('arrayOfIDs' , JSON.stringify([]));
-      arrayOfIDs = localStorage.getItem('arrayOfIDs');
-    }else{
-      arrayOfIDs = localStorage.getItem('arrayOfIDs');
-    } 
-    return JSON.parse(arrayOfIDs);
   }
 
   console.log(getLikedIds())
